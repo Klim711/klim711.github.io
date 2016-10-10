@@ -78,8 +78,7 @@ body {
 }
 
 .bottom {
-	/*background-color: rgba(0,0,0,0.7);*/
-	background: transparent;
+	background-color: rgba(0,0,0,0.7);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000); 
     zoom: 1;
 	position: fixed;
