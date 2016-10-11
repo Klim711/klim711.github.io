@@ -19,33 +19,38 @@ body {
 	left: 50%;
 	position: absolute;
 	display: inline-block;
-	height: 35px;
+	width: 40px;
+    height: 40px;
+    background-image: url("images/spritesheet.png");
 }
 .twitter {
 	margin-left: -470px;
+    background-position: -105px -5px;
 }
 .vkontakte {
 	margin-left: -315px;
 	margin-top: 155px;
+    background-position: -155px -5px;
+
 }
 .facebook {
 	margin-left: -348px;
 	margin-top: 190px;
+    background-position: -5px -5px;
 }
 .pinterest {
 	margin-left: -395px;
 	margin-top: 200px;
+    background-position: -55px -5px;
 }
 
 .central {
-	/*z-index: 1;*/
 	position: absolute;
 	background-color: #e4dea4;
 	height: 600px;
 	width: 460px;
 	left: 50%;
 	margin-left: -230px;
-	/*margin: auto;*/
 	margin-top: 170px;
 }
 
@@ -79,8 +84,7 @@ body {
 
 .bottom {
 	background-color: rgba(0,0,0,0.7);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000); 
-    /*zoom: 1;*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#B3000000,endColorstr=#B3000000);
 	position: fixed;
 	z-index: 4;
 	height: 130px;
