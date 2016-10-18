@@ -6,7 +6,7 @@
     width: 1030px;
     margin: 0 auto;
 }
-header {
+.header {
     /*height: 190px;*/
     background-color: rgb(76, 94, 171);
     padding: 60px 80px 50px;
@@ -103,7 +103,7 @@ header {
     margin: 0 auto;*/
     background: url("images/gradient2.png") repeat-y;
 }
-aside {
+.aside {
     float: left;
     /*display: inline-block;*/
     width: 250px;
@@ -181,20 +181,22 @@ aside {
     font-size: 1.1em;
     color: rgb(0, 0, 0);
 }
-
+.reference-list {
+    list-style-type: none;
+    margin-left: 10px;
+    padding: 0;
+}
 .reference {
     font-family: "Open Sans", serif;
     margin-bottom: 40px;
 }
-
+.reference-block {
+     position: relative;
+ }
 .reference-text {
     margin: 5px 0 5px 30px;
     display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-weight: 500;
-    /*border-left: 1px solid grey;*/
 }
 
 .reference-name {
@@ -202,31 +204,54 @@ aside {
     color: rgb(76, 94, 171);
     text-decoration: none;
 }
-
-.grey-link-circle {
+.link-decoration {
     background-image: url("images/up-circle.png");
     background-repeat: no-repeat;
     width: 20px;
-    height: 120px;
-    position: absolute;
-    float: left;
-    margin-top: 30px;
-}
-
-.reference:last-child>.grey-link-circle {
     height: 20px;
+    position: absolute;
 }
-
+.down-vertical-line, .up-vertical-line,.central-vertical-line {
+    position: absolute;
+    height: calc(100% + 30px);
+    width: 1px;
+    background-color: grey;
+}
+.down-vertical-line {
+    margin: -7px 0 0 9px;
+}
+.central-vertical-line {
+    margin-left: 9px;
+    height: 100%;
+}
+.up-vertical-line {
+    margin: -20px 0 0 9px;
+}
+li:last-child .reference-block >.central-vertical-line {
+    visibility: hidden;
+}
+li:last-child .reference-block:last-child >.down-vertical-line {
+    visibility: hidden;
+}
+li:first-child .reference-block:first-child >.up-vertical-line {
+    visibility: hidden;
+}
+.awards-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 .award {
+    display: block;
     font-family: "Open Sans", serif;
     font-weight: 600;
+    color: rgb(0, 0, 0);
     margin: 10px 0;
 }
-main {
+.main {
     float: left;
     width: 580px;
     vertical-align: top;
-    /*display: inline-block;*/
     padding: 40px 0 55px 90px;
     background-color: rgb(255, 255, 255);
 }
@@ -239,13 +264,23 @@ main {
     font-size: 1.728em;
     letter-spacing: -1px;
 }
+.portfolio-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.portfolio-list > li {
+    display: inline-block;
+}
 .portfolio {
     display: inline-block;
-    height: 265px;
+    /*height: 265px;*/
     width: 240px;
     margin: 10px 10px;
     box-shadow: 0 0 40px rgba(0,0,0,0.1);
     color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    vertical-align: top;
 }
 .portfolio:hover {
     box-shadow: 0 0 40px rgba(0,0,0,0.5);
@@ -268,7 +303,7 @@ main {
 }
 .article-category {
 }
-footer {
+.footer {
     clear: left;
     width: 870px;
     height: 60px;
@@ -283,4 +318,7 @@ footer {
     color: rgb(255,255,255);
     font-weight: bold;
     text-decoration: none;
+}
+.fictitious {
+    clear: both;
 }
