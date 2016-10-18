@@ -1,31 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link href="styles.css" rel="stylesheet" type="text/css"/>
-        <title>Positioning</title>
-    </head>
-    <body>
-        <img class="avatar" src="images/noavatar.png" alt=" "/>
-        <div class="twitter"></div>
-        <div class="pinterest"></div>
-        <div class="vkontakte"></div>
-        <div class="facebook"></div>
-        <div class="central">
-            <div class="first"></div>
-            <div class="second"></div>
-            <div class="third"></div>
-        </div>
-        <div class="bottom">
-            <div class="yellow_square"></div>
-            <div class="bottom_text">
-                <p><span>HAVE ANY QUESTIONS?</span></p>
-                <p>
-                    <span>Email</span>: epamlab@epam.com<br/>
-                    <span>Phone</span>: +375 123 456 678<br/> 
-                    <span>Contact Person</span>: Somebody
-                </p>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS-Recipes</title>
+    <link href="styles.css" style="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-avatar-wrapper clearfix">
+                <img class="avatar" src="images/noavatar.png" alt="" />
+                <div class="profile-avatar-text-wrapper">
+                    <h1 class="profile-name">Andrew Smith</h1>
+                    <h3 class="profile-post">UI/UX Designer </h3>
+                </div>
             </div>
+                <ul class="contact-list contact-info clearfix">
+                    <li>
+                        <a href="https://yandex.ru/maps" class="link contact-block">
+                            <div class="contact-icon pin"></div>
+                            <address class="contact-link">67/B Munshi para Sylhet.</address>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://itsnuman.com/" class="link contact-block">
+                            <div class="contact-icon globe"></div>
+                            <address class="contact-link">itsnuman.com</address>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mail.com/int/#.1272-header-navlogin2-1" class="link contact-block">
+                            <div class="contact-icon globe"></div>
+                            <address class="contact-link">jan@mail.com</address>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="link contact-block">
+                            <div class="contact-icon phone"></div>
+                            <address class="contact-link">+444 034 534</address>
+                        </a>
+                    </li>
+                </ul>
+        </header>
+
+        <div class="wrapper">
+            <aside class="clearfix">
+                <section class="aside-section">
+                    <div class="briefcase-icon"></div>
+                    <p class="aside-section-name">Profile Info</p>
+                    <p class="aside-section-text"> Aliquam tincidunt magna ex, a tristique neque commodo sed. Suspendisse iaculis purus vitae lorem faucibus, at placerat lorem consectetur.</p>
+                </section>
+
+                <section class="aside-section">
+                    <div class="briefcase-icon"></div>
+                    <p class="aside-section-name">Interests</p>
+                    <div class="interest">
+                        <a href="#" class="interest-link shadow-text">
+                            <div class="interest-img music"></div>
+                            <p class="interest-name">Music</p>
+                        </a>
+                    </div>
+                    <div class="interest">
+                        <a href="#" class="interest-link shadow-text">
+                            <div class="interest-img gaming"></div>
+                            <p class="interest-name">Gaming</p>
+                        </a>
+                    </div>
+                    <div class="interest">
+                        <a href="#" class="interest-link shadow-text">
+                            <div class="interest-img biking"></div>
+                            <p class="interest-name">Biking</p>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="aside-section">
+                    <div class="briefcase-icon"></div>
+                    <p class="aside-section-name">Reference</p>
+                    <div class="reference">
+                        <div class="grey-link-circle"></div>
+                        <p class="reference-text">1999 - Present</p>
+                        <a class="link reference-name reference-text shadow-text" href="#">Sheikh AI Rayhan</a>
+                        <p class="reference-text">CEO, DewiserWeb</p>
+                    </div>
+                    <div class="reference">
+                        <div class="grey-link-circle"></div>
+                        <p class="reference-text">2000 - 2012</p>
+                        <a class="link reference-name reference-text shadow-text" href="#">Junaed Ahmed Numan</a>
+                        <p class="reference-text">Google Developer</p>
+                    </div>
+                </section>
+
+                <section class="aside-section">
+                    <div class="briefcase-icon"></div>
+                    <p class="aside-section-name">Awards</p>
+                    <p class="award"> Illustration award 2009</p>
+                    <p class="award"> Web Design award 2012</p>
+                    <p class="award"> Elite award 20019</p>
+                </section>
+            </aside>
+            <main class="clearfix">
+                <div class="main-header">
+                    <div class="briefcase-icon"></div>
+                    <p class="main-header-name">Portfolio</p>
+                </div>
+                <a href="#" class="link portfolio">
+                    <img src="images/mac-apple.png" alt="" class="article-img" />
+                    <p class="article-name">Converter Ipod Video</p>
+                    <p class="article-category">UI/UX Design</p>
+                </a>
+                <a href="#" class="link portfolio">
+                    <img src="images/Web-typography1.jpg" alt="" class="article-img" />
+                    <p class="article-name">The Skinny On Lcd</p>
+                    <p class="article-category">Web Typography</p>
+                </a>
+                <a href="#" class="link portfolio">
+                    <img src="images/design.jpg" alt="" class="article-img" />
+                    <p class="article-name">The Best Answers</p>
+                    <p class="article-category">Graphics Design</p>
+                </a>
+                <a href="#" class="link portfolio">
+                    <img src="images/uxui.jpg" alt="" class="article-img" />
+                    <p class="article-name">3 Simple Ways To Save</p>
+                    <p class="article-category">UI/UX Design</p>
+                </a>
+                <a href="#" class="link portfolio">
+                    <img src="images/web-design.jpg" alt="" class="article-img" />
+                    <p class="article-name">Life Advice Looking</p>
+                    <p class="article-category">Web Design</p>
+                </a>
+                <a href="#" class="link portfolio">
+                    <img src="images/graphic-design.png" alt="" class="article-img" />
+                    <p class="article-name">How To Build A PC</p>
+                    <p class="article-category">Graphics Design</p>
+                </a>
+            </main>
         </div>
-    </body>
+    </div>
+    <footer>
+        <p>You can write me on <a href="#" class="link footer-link">jan@mail.com</a> or call <a href="#" class="link footer-link">+444 034 534</a> </h>
+    </footer>
+</body>
+
 </html>
