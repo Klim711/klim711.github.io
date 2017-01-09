@@ -1,0 +1,180 @@
+body {
+    background-color: rgb(40, 44, 52);
+    padding: 20px;
+    font-family: Roboto, arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#search {
+    display: block;
+    margin: 20px auto;
+    padding: 0 20px;
+    height: 40px;
+    width: 250px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+iframe {
+    border: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.slider-wrapper {
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 0;
+
+}
+
+.slider {
+    white-space: nowrap;
+    transition: all .5s;
+}
+
+.video-panel {
+    width: 1400px;
+    height: 480px;
+}
+
+.video-list {
+    color: rgb(255, 255, 255);
+}
+
+.video {
+    display: inline-block;
+    width: 300px;
+    font-size: 16px;
+    margin:0 25px;
+    height: 480px;
+    vertical-align: top;
+    white-space: normal;
+    background-color: rgb(33, 37, 43);
+    border-radius: 5px;
+}
+
+.video img {
+    width: 300px;
+    height: 170px;
+}
+
+.video h3 {
+    margin: 0;
+}
+
+.video a {
+    display: block;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.video-name {
+    font-size: 18px;
+    color: rgb(255, 152, 0);
+}
+
+.video-channel {
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    color: rgb(0, 188, 212);
+}
+
+.video p {
+    font-style: italic;
+    font-size: 13px;
+    color: rgb(178, 178, 178);
+}
+
+.video-description {
+    padding: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.pagination-panel {
+    position: relative;
+    box-sizing: border-box;
+    padding: 5px 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: rgb(33, 37, 43);
+    width: 210px;
+    height: 40px;
+}
+
+.pagination-panel ul {
+    position: absolute;
+    left: calc(50% - 20px);
+    white-space: nowrap;
+}
+
+.pagination-panel li {
+    display: inline-block;
+}
+
+.pagination-panel input {
+    display: none;
+}
+
+.pagination-panel label{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgb(178, 178, 178);;
+}
+
+.pagination-panel input:checked + label {
+    background-color: rgb(255, 152, 0);
+    color: rgb(255, 255, 255);
+}
+
+@media (max-width: 1460px) {
+    .video-panel {
+        width: 1050px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .video-panel {
+        width: 700px;
+    }
+}
+
+@media (max-width: 730px) {
+    .video-panel {
+        width: 350px;
+    }
+}
