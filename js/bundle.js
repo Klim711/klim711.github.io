@@ -71,12 +71,22 @@
 	            </ul>
 	        </div>
 
-	        <div class="slider-wrapper pagination-panel noselect">
-	            <ul class="slider">
+	        <div class="pagination-wrapper slider-wrapper hidden">
+	            <button id="left-button" title="10 pages back">
+	                <i class="fa fa-fast-backward" aria-hidden="true"></i>
+	            </button>
+	            <div class="pagination-panel slider-wrapper">
+	                <ul class="slider">
 
-	            </ul>
+	                </ul>
+	            </div>
+	            <button id="right-button" title="10 pages forward">
+	                <i class="fa fa-fast-forward" aria-hidden="true"></i>
+	            </button>
 	        </div>
 	    `;
+
+
 	}
 
 	function appendArticles(data, isRedraw) {
@@ -86,8 +96,10 @@
 	        document.querySelector('.video-list').innerHTML = "";
 	    }
 
+	    let publishedDate;
 	    data.items.forEach((item) => {
-	        //<iframe width="300" height="170" src="https://www.youtube.com/embed/${item.id.videoId}" frameboarder="0" allowfullscreen></iframe>
+	        publishedDate = new Date(item.snippet.publishedAt);
+
 	        videoList.innerHTML += `
 	            <li class="video">
 	                <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank">
@@ -99,6 +111,7 @@
 	                    </h3>
 	                    <a class="video-channel" href="https://www.youtube.com/channel/${item.snippet.channelId}" target="_blank">${item.snippet.channelTitle}</a>
 	                    <p>${item.snippet.description}</p>
+	                    <p>Published on ${publishedDate.toDateString()}</p>
 	                </div>
 	            </li>
 	        `;
@@ -138,7 +151,13 @@
 	    let width = document.querySelector('.video-panel').offsetWidth;
 
 	    document.querySelector('.video-list').style.marginLeft = -width * pageNumber + 'px';
-	    document.querySelector('.pagination-panel ul').style.marginLeft = -40 * pageNumber + 'px';
+
+	    if (pageNumber === 0 || pageNumber === 1) {
+	        document.querySelector('.pagination-panel ul').style.marginLeft = '-80px';
+	    } else {
+	        document.querySelector('.pagination-panel ul').style.marginLeft = -40 * pageNumber + 'px';
+	    }
+
 	    document.querySelector(`#page${pageNumber}`).checked = true;
 	}
 
@@ -189,6 +208,8 @@
 	    paginationHandler();
 	    uploadHandler();
 	    resizeHandler();
+
+	    buttonsHandler();
 	}
 
 	function searchHandler() {
@@ -196,7 +217,10 @@
 	        if (e.keyCode === 13) {
 
 	            getVideos()
-	                .then(data => appendArticles(data, true))
+	                .then(data => {
+	                    appendArticles(data, true);
+	                    document.querySelector('.pagination-wrapper').classList.remove('hidden');
+	                })
 	                .then(() => paginationDraw(0))
 	                .then(() => flipTo(0));
 	        }
@@ -291,6 +315,26 @@
 	    }
 	}
 
+	function buttonsHandler() {
+	    document.querySelector('#left-button').addEventListener('click', function(e) {
+	        let pageNumber = Number(document.querySelector('.pagination-panel input:checked + label').innerHTML) - 11;
+
+	        flipTo(pageNumber >= 0 ? pageNumber : 0);
+	    });
+
+	    document.querySelector('#right-button').addEventListener('click', function(e) {
+	        let pageNumber = Number(document.querySelector('.pagination-panel input:checked + label').innerHTML) + 9;
+	        let maxNumber = document.querySelector('.pagination-panel ul').children.length - 1;
+
+	        flipTo(pageNumber < maxNumber ? pageNumber : maxNumber);
+
+	        let event = new Event('swipeEnd', {
+	            "bubbles": true
+	        });
+	        document.querySelector('.pagination-panel ul').dispatchEvent(event);
+	    });
+	}
+
 	module.exports = listen;
 
 
@@ -306,7 +350,7 @@
 	function getVideos() {
 	    inputValue = document.querySelector('#search').value;
 
-	    return fetch(`https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&type=video&part=snippet&maxResults=${SNIPPET_LENGTH}&q=${inputValue}`)
+	    return fetch(`https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&type=video&part=snippet&maxResults=30&q=${inputValue}`)
 	        .then(res => res.json())
 	        .then(jsonRes => {
 	            data = jsonRes;

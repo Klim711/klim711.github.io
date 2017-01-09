@@ -1,6 +1,5 @@
 body {
     background-color: rgb(40, 44, 52);
-    padding: 20px;
     font-family: Roboto, arial, sans-serif;
 }
 
@@ -18,16 +17,21 @@ ul {
     padding: 0;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 #search {
     display: block;
     margin: 20px auto;
     padding: 0 20px;
     height: 40px;
-    width: 250px;
+    width: 300px;
     font-size: 20px;
     border-radius: 20px;
     border: none;
     outline: none;
+    box-sizing: border-box;
 }
 
 iframe {
@@ -74,7 +78,6 @@ iframe {
     vertical-align: top;
     white-space: normal;
     background-color: rgb(33, 37, 43);
-    border-radius: 5px;
 }
 
 .video img {
@@ -118,12 +121,21 @@ iframe {
     overflow: hidden;
 }
 
+.pagination-wrapper {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: rgb(33, 37, 43);
+    width: 300px;
+    height: 40px;
+}
+
 .pagination-panel {
     position: relative;
     box-sizing: border-box;
     padding: 5px 20px;
     border-radius: 20px;
-    margin-top: 20px;
     background-color: rgb(33, 37, 43);
     width: 210px;
     height: 40px;
@@ -131,7 +143,7 @@ iframe {
 
 .pagination-panel ul {
     position: absolute;
-    left: calc(50% - 20px);
+    left: 85px;
     white-space: nowrap;
 }
 
@@ -153,12 +165,34 @@ iframe {
     cursor: pointer;
     border-radius: 15px;
     text-align: center;
-    background-color: rgb(178, 178, 178);;
+    background-color: rgb(178, 178, 178);
 }
 
 .pagination-panel input:checked + label {
     background-color: rgb(255, 152, 0);
     color: rgb(255, 255, 255);
+}
+
+#left-button, #right-button {
+    position: absolute;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: rgb(178, 178, 178);
+}
+
+#left-button {
+    left: 5px;
+}
+
+#right-button {
+    right: 5px;
 }
 
 @media (max-width: 1460px) {

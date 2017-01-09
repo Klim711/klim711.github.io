@@ -14,12 +14,22 @@ function init() {
             </ul>
         </div>
 
-        <div class="slider-wrapper pagination-panel noselect">
-            <ul class="slider">
+        <div class="pagination-wrapper slider-wrapper hidden">
+            <button id="left-button" title="10 pages back">
+                <i class="fa fa-fast-backward" aria-hidden="true"></i>
+            </button>
+            <div class="pagination-panel slider-wrapper">
+                <ul class="slider">
 
-            </ul>
+                </ul>
+            </div>
+            <button id="right-button" title="10 pages forward">
+                <i class="fa fa-fast-forward" aria-hidden="true"></i>
+            </button>
         </div>
     `;
+
+
 }
 
 function appendArticles(data, isRedraw) {
@@ -29,8 +39,10 @@ function appendArticles(data, isRedraw) {
         document.querySelector('.video-list').innerHTML = "";
     }
 
+    let publishedDate;
     data.items.forEach((item) => {
-        //<iframe width="300" height="170" src="https://www.youtube.com/embed/${item.id.videoId}" frameboarder="0" allowfullscreen></iframe>
+        publishedDate = new Date(item.snippet.publishedAt);
+
         videoList.innerHTML += `
             <li class="video">
                 <a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank">
@@ -42,6 +54,7 @@ function appendArticles(data, isRedraw) {
                     </h3>
                     <a class="video-channel" href="https://www.youtube.com/channel/${item.snippet.channelId}" target="_blank">${item.snippet.channelTitle}</a>
                     <p>${item.snippet.description}</p>
+                    <p>Published on ${publishedDate.toDateString()}</p>
                 </div>
             </li>
         `;
@@ -81,7 +94,13 @@ function flipTo(pageNumber) {
     let width = document.querySelector('.video-panel').offsetWidth;
 
     document.querySelector('.video-list').style.marginLeft = -width * pageNumber + 'px';
-    document.querySelector('.pagination-panel ul').style.marginLeft = -40 * pageNumber + 'px';
+
+    if (pageNumber === 0 || pageNumber === 1) {
+        document.querySelector('.pagination-panel ul').style.marginLeft = '-80px';
+    } else {
+        document.querySelector('.pagination-panel ul').style.marginLeft = -40 * pageNumber + 'px';
+    }
+
     document.querySelector(`#page${pageNumber}`).checked = true;
 }
 

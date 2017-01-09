@@ -6,7 +6,7 @@ let inputValue;
 function getVideos() {
     inputValue = document.querySelector('#search').value;
 
-    return fetch(`https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&type=video&part=snippet&maxResults=${SNIPPET_LENGTH}&q=${inputValue}`)
+    return fetch(`https://www.googleapis.com/youtube/v3/search?key=${APIKEY}&type=video&part=snippet&maxResults=30&q=${inputValue}`)
         .then(res => res.json())
         .then(jsonRes => {
             data = jsonRes;

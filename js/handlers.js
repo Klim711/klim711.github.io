@@ -23,6 +23,8 @@ function listen() {
     paginationHandler();
     uploadHandler();
     resizeHandler();
+
+    buttonsHandler();
 }
 
 function searchHandler() {
@@ -30,7 +32,10 @@ function searchHandler() {
         if (e.keyCode === 13) {
 
             getVideos()
-                .then(data => appendArticles(data, true))
+                .then(data => {
+                    appendArticles(data, true);
+                    document.querySelector('.pagination-wrapper').classList.remove('hidden');
+                })
                 .then(() => paginationDraw(0))
                 .then(() => flipTo(0));
         }
@@ -123,6 +128,26 @@ function resizeHandler() {
             paginationDraw();
         }
     }
+}
+
+function buttonsHandler() {
+    document.querySelector('#left-button').addEventListener('click', function(e) {
+        let pageNumber = Number(document.querySelector('.pagination-panel input:checked + label').innerHTML) - 11;
+
+        flipTo(pageNumber >= 0 ? pageNumber : 0);
+    });
+
+    document.querySelector('#right-button').addEventListener('click', function(e) {
+        let pageNumber = Number(document.querySelector('.pagination-panel input:checked + label').innerHTML) + 9;
+        let maxNumber = document.querySelector('.pagination-panel ul').children.length - 1;
+
+        flipTo(pageNumber < maxNumber ? pageNumber : maxNumber);
+
+        let event = new Event('swipeEnd', {
+            "bubbles": true
+        });
+        document.querySelector('.pagination-panel ul').dispatchEvent(event);
+    });
 }
 
 module.exports = listen;
